@@ -144,16 +144,16 @@ void cSocket::sendout()
         }
         const unsigned int size_buf = 1024;
         char buf[size_buf];
-        unsigned int sz = 0;
+        long int sz = 0;
         file.seekg (0, file.end);
-        int length = file.tellg();      // длина файла
+        long int length = file.tellg();      // длина файла
         file.seekg (0, file.beg);
         while(true)
         {            
-            int oldTellg = file.tellg();
+            long int oldTellg = file.tellg();
             file.read(buf, size_buf);
             mes = buf;
-            int curSz = file.tellg()-oldTellg;
+            long int curSz = file.tellg()-oldTellg;
             if(file.tellg() < oldTellg)
             {
                 curSz = length-oldTellg;

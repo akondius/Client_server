@@ -1,23 +1,14 @@
-#include <iostream>
 #include "../csocket.h"
 
 int main(int argc, char* argv[])
 {
-//    std::string fileName = "/home/andy/Projects/Client_serv/Client/test.txt";
-//    cSocket client("localhost",
-//                   10000,
-//                   fileName,
-//                   false);
-
     if(argc == 4)
     {
-        cSocket client(argv[1],                     // localhost
+        cSocket server(argv[1],                     // localhost
                        std::stoi(argv[2]),          // порт
-                       argv[3],                     // файл для персылки (напр, "home/[user]/test.txt")
-                       false);
-        client.sendout();
+                       argv[3]);                    // путь для сохранения (напр, "home/[user]/Server")
+        server.listen();
     }
-
     return 0;
 }
 
